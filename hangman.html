@@ -52,11 +52,11 @@
                 break;
             } else if (guess.length !== 1) {
                 alert("Please enter a single letter.");
-            } else {
 //Update state of game based on Player's guess
-                for (var j = 0; j < word.length; j++) {
-                    if (word[j] === guess) {
-                        answerArray[j] = guess;
+            } else {
+                for (var i = 0; i < word.length; i++) {
+                    if (word[i] === guess) {
+                        answerArray[i] = guess;
                         remainingLetters--;
                     }
                 }
