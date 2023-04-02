@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var name = prompt("Enter name"); {
+            alert("Hello, " + name + "! Welcome to Hangman!");
+        };
+
+//An array of words
+        var words = [
+            "crisp",
+            "jungle",
+            "chunk",
+            "kitty",
+            "castle",
+            "dream",
+            "farmer",
+            "require",
+            "reign",
+            "supreme",
+            "pleade"
+        ];
+
+//Pick random word
+        var word = words[Math.floor(Math.random() * words.length)];
+
+//Set up answer array
+        var answerArray = [];
+        for (i = 0; i < word.length; i++) {
+            answerArray[i] = "_";
+        }
+
+        var remainingLetters = word.length
+
+//Game Loop
+        while(remainingLetters > 0) {
+
+//Show Player's Progress
+            alert(answerArray.join(" "));
+
+//Guess from Player
+            var guess = prompt("Guess a letter, or click Cancel to stop playing");
+            if (guess === null) {
+//Exit the game loop
+                break;
+            } else if (guess.length !== 1) {
+                alert("Please enter a single letter.");
+            } else {
+//Update state of game based on Player's guess
+                for (var j = 0; j < word.length; j++) {
+                    if (word[j] === guess) {
+                        answerArray[j] = guess;
+                        remainingLetters--;
+                    }
+                }
+            }
+//End of loop
+        }
+
+//Alert the Player with Congratz
+            alert(answerArray.join(""));
+            alert("Nice!, the answer was " + word);
+
+    </script>
+</body>
+</html>
